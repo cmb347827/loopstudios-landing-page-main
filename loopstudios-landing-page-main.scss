@@ -1,0 +1,126 @@
+@import 'custom.scss';
+@import '_globals.scss';
+
+$colors: (
+  White: hsl(0, 0%, 100%),
+  Black: hsl(0, 0%, 0%),
+  Dark Gray: hsl(0, 0%, 55%),
+  Very Dark Gray: hsl(0, 0%, 41%),
+);
+$fallback-colors: (
+  White Black #999999 #5b5b5b
+);
+
+@mixin background($url,$position:auto,$size:auto,$repeat:no-repeat,$fixed:fixed,$color:white){
+    background: url($url) $position/$size $repeat $fixed $color; 
+}
+@mixin font-color($color, $fallback-color) {
+  color: $fallback-color;
+  color: $color;
+}
+
+@mixin bg-color($color, $fallback-color) {
+  background-color: $fallback-color;
+  background-color: $color;
+}
+
+
+@mixin border-radius($radius...) {
+  border-radius: $radius;
+}
+@mixin margin($args...) {
+  margin: $args;
+}
+@mixin padding($args...) {
+  padding: $args;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  font: {
+     size: $font_size-16;
+     weight: $font_weight-normal;
+  }
+}
+#header{
+   width: $container__form-xs;
+   @include margin(100px auto);
+   background:url(./images/mobile/image-hero.jpg) top left/100% 100% no-repeat;
+   min-height:1000px;
+   
+   @media screen and(min-width:$container__form-xxl){
+      min-height:650px;
+      width:$container__form-xxl;
+      background:url(./images/desktop/image-hero.jpg) top left/100% 100% no-repeat;
+   }
+}
+
+.main{
+    width:$container__form-xs;
+    display:grid;
+	  height: fit-content;
+	  @include margin(100px auto);
+	  font: {
+	     size: $font_size-16 * 1.2;
+    }
+    
+    
+	  #allBtn{
+	    width:200px;
+	    height:30px;
+	  }
+    #pictures{
+      display:grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(4,fit-content);
+      align-items: start;
+      height:100%;
+      position:relative;
+      .parent {
+        min-height: 300px;
+        position: relative; 
+        img{
+           max-width: 370px;
+           &:not(#first){
+              @for $s from 1 through 7 {
+                .#{$s} {margin-top: -$s * 10px;}
+              }
+           }
+          }
+      }
+      h3{
+        @include font-color(lighten(map-get($colors,White),17),nth($fallback-colors,1));
+       }
+      @media screen and(min-width:$container__form-xxl){
+        grid-template-columns: repeat(4,300px);
+        grid-template-rows: 1fr 1fr;
+      }
+    }
+    @media screen and(min-width:$container__form-xxl){
+	   
+       width: $container__form-xxl;
+	     @include padding(150px);
+	   
+    }
+  
+}
+
+footer {
+  .attribution {
+    font-size: $font_size-8;
+    text-align: center;
+  }
+  .attribution a {
+    color: hsl(228, 45%, 44%);
+  }
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" integrity="sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://i.postimg.cc/yxgKFKLM/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" >
+  <link rel='stylesheet' href='loopstudios-landing-page-main.css' type='text/css'>
+  <title>Frontend Mentor | Loopstudios landing page</title>
+
+  
+</head>
+<body>
+    <header id='header' class='height d-flex flex-column ps-3'>
+	      <div class='d-flex'>
+		     <img class='' src='./images/logo.svg' alt='' width="192" height="32">
+	         <nav id='nav' class="container-fluid navbar navbar-expand-xxl d-flex align-items-start justify-content-end">
+                 <button id='menubutton' type="button" class="navbar-toggler ms-4 mt-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon navbar-dark"></span>
+                 </button>
+                 <div class="collapse navbar-collapse d-xxl-flex justify-content-end" id="navbarCollapse">
+                   <div class="navbar-nav">
+                      <a href="#" class="nav-item nav-link active">About</a>
+                      <a href="#" class="nav-item nav-link">Careers</a>
+                      <a href="#" class="nav-item nav-link">Events</a>
+				      <a href='#' class='nav-item nav-link'>Products</a>
+				      <a href='#' class='nav-item nav-link'>Support</a>
+                   </div>
+                 </div> 
+             </nav>
+		  </div>
+		  <h1 class='border border-white'>Immersive experiences that deliver</h1>
+	</header>
+	<main class='main'>
+		<section class="main_first">
+           <h2>The leader in interactive VR</h2>
+           <p>Founded in 2011, Loopstudios has been producing world-class virtual reality 
+  projects for some of the best companies around the globe. Our award-winning 
+  creations have transformed businesses through digital experiences that bind 
+  to their brand.</p>
+		</section>
+		<section class="'main_second">
+           <h2>Our creations</h2>
+           <button id='allBtn' class='btn btn-outline-primary'>See all</button>
+           <div id="pictures">
+		        <picture class="card parent">
+			       <source srcset='./images/desktop/image-deep-earth.jpg' media='(min-width: 1440px)'>
+				   <img id='first' class = "card-img-top" src='./images/mobile/image-deep-earth.jpg' alt=''>
+				   <h3 class="text-uppercase  card-img-overlay">Deep earth</h3>
+                </picture>
+			    <picture class="card parent">
+				   <source srcset="./images/desktop/image-night-arcade.jpg" media="(min-width: 1440px)">
+			       <img id="1" class='card-img-top' src='./images/mobile/image-night-arcade.jpg' alt='' >
+			       <h3 class="text-uppercase card-img-overlay">Night arcade</h3>
+		        </picture>
+			    <picture class="card parent">
+				   <source srcset="./images/desktop/image-soccer-team.jpg" media="(min-width: 1440px)">
+			       <img  id='2' class='card-img-top' src='./images/mobile/image-soccer-team.jpg' alt='' >
+			       <h3 class="text-uppercase  card-img-overlay">Soccer team VR</h3>
+		        </picture>
+			    <picture class="card parent">
+				   <source srcset="./images/desktop/image-grid.jpg" media="(min-width: 1440px)">
+			       <img  id='3' class='card-img-top' src='./images/mobile/image-grid.jpg' alt='' >
+			       <h3 class="text-uppercase  card-img-overlay">The grid</h3>
+		        </picture>
+			    <picture class="card parent">
+				   <source srcset="./images/desktop/image-from-above.jpg" media="(min-width: 1440px)">
+			       <img id="4" class='card-img-top' src='./images/mobile/image-from-above.jpg' alt='' >
+			       <h3 class="text-uppercase card-img-overlay">From up above VR</h3>
+		        </picture>
+			    <picture class="card parent">
+				   <source srcset="./images/desktop/image-pocket-borealis.jpg" media="(min-width: 1440px)">
+			       <img id="5" class='card-img-top' src='./images/mobile/image-pocket-borealis.jpg' alt='' >
+			       <h3 class="text-uppercase card-img-overlay">Pocket borealis</h3>
+		        </picture>
+			    <picture class="card parent">
+				   <source srcset="./images/desktop/image-curiosity.jpg" media="(min-width: 1440px)">
+			       <img id="6" class='card-img-top' src='./images/mobile/image-curiosity.jpg' alt='' >
+			       <h3 class="text-uppercase card-img-overlay ">The curiosity</h3>
+		        </picture>
+			    <picture class="card parent">
+				   <source srcset="./images/desktop/image-fisheye.jpg" media="(min-width: 1440px)">
+			       <img  id='7' class='card-img-top' src='./images/mobile/image-fisheye.jpg' alt='' >
+			       <h3 class="text-uppercase card-img-overlay ">Make it fisheye</h3>
+		        </picture>
+            </div>
+		</section>
+	</main>
+	<footer>
+	    <nav>
+            About
+            Careers
+            Events
+            Products
+            Support
+        </nav>
+		<small>© 2021 Loopstudios. All rights reserved.</small>
+	</footer>
+	<section>
+        <footer id='bottom-footer'>
+	       <div class="attribution mt-5">
+               <span class='me-2'>Challenge by</span><address><a class='me-2' href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a></address>
+               <span class='me-2'>Coded by</span><address><a href="https://www.frontendmentor.io/profile/cmb347827">CMB</a></address>
+           </div>
+	    </footer>	
+	</section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<script src='loopstudios-landing-page-main.js'></script>
+</body>
+</html>
