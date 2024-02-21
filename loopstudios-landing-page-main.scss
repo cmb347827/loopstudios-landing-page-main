@@ -1,3 +1,4 @@
+ 
 @import 'custom.scss';
 @import '_globals.scss';
 
@@ -41,86 +42,231 @@ $fallback-colors: (
   box-sizing: border-box;
 }
 
-
+.red{border:2px solid red;}
 html,
 body {
-  width: 100vw;
-  height: 100vh;
-  overflow: auto;
   font: {
-     size: $font_size-16;
+     //15 px.
+     size: 93.8%; 
      weight: $font_weight-normal;
+     family: "Alata", sans-serif;
   }
 }
+
+.hidden{
+  display:none;
+  @include media-breakpoint-up(xxl){
+     display:block;
+  }
+}
+.show{
+  display:block;
+  @include media-breakpoint-up(xxl){
+     display:none;
+  }
+}
+
 #header{
-   width: $container__form-xs;
-   @include margin(100px auto);
-   background:url(./images/mobile/image-hero.jpg) top left/100% 100% no-repeat;
-   min-height:1000px;
-   
-   @media screen and(min-width:$container__form-xxl){
-      min-height:650px;
-      width:$container__form-xxl;
-      background:url(./images/desktop/image-hero.jpg) top left/100% 100% no-repeat;
-   }
+  width: $container__form-xs;
+  @include margin(5px auto);  
+  background:url(./images/mobile/image-hero.jpg) top left/100% 100% no-repeat;
+  @include padding(50px 15px);
+  @include font-color(map-get($colors,white),nth($fallback-colors,1));
+  .logo,#close{
+    //needed for z-index.
+    position: relative;
+    z-index: 1;
+  }
+  h1{
+    width: 350px;
+    @include media-breakpoint-up(xxl){
+       width: 400px;
+    }
+  }
+  #nav{
+    #menubutton{
+       position:relative;
+       bottom:15px;
+    }
+    a{
+      @include font-color(map-get($colors,white),nth($fallback-colors,1));
+      @include media-breakpoint-up(xxl){
+        &:hover{
+          cursor:pointer;
+          &::after{
+            content:'';
+            position: relative;
+            left:25%;
+            width: 30px;
+            display: block;
+            height: 3px;
+            background-color: map-get($colors,white);
+          }
+        }
+      }
+    }
+    #navbarCollapse{
+       
+      @include media-breakpoint-down(xxl){
+         .navbar-nav{
+            @include padding(170px 25px);
+            @include bg-color(map-get($colors,black),nth($fallback-colors,2));
+            
+            //position absolute is used, so the menu is positioned on-top of header background without pushing contents down.
+            position: absolute;
+            right:-15px;
+            top:-115px;
+            width: 375px;
+         }
+      }
+    }
+  }
+  @include media-breakpoint-up(xxl){
+    //wanted to use only padding instead of setting a min-height, but then justify-content-around to disperse the elements across the y-axis doesn't work.
+    @include padding(0 150px);
+    width:$container__form-xxl;
+    min-height:430px;
+    background:url(./images/desktop/image-hero.jpg) top left/100% 100% no-repeat;
+  }
 }
 
 .main{
-    width:$container__form-xs;
-    display:grid;
-	  height: fit-content;
-	  @include margin(100px auto);
-	  font: {
-	     size: $font_size-16 * 1.2;
+  width:$container__form-xs;
+  @include margin(100px auto);
+  @include padding(15px);
+  font: {
+     size: 1.2rem;
+  }
+  .colorHover{
+    @include bg-color(map-get($colors,white),nth($fallback-colors,1));
+    @include font-color(map-get($colors,black),nth($fallback-colors,2));
+    border: 3px solid map-get($colors,Very Dark Gray);
+    &:hover{
+      @include bg-color(map-get($colors,Very Dark Gray),nth($fallback-colors,4));
+      @include font-color(map-get($colors,white),nth($fallback-colors,1));
     }
+  }
+  .btnWidth{
+    width: 200px;
+  }
+  .move{
+    transform: translateY(25%);
+    @include media-breakpoint-up(xxl) {
+      transform: translateY(70%);
+    }
+  }
+  &_first{
+    @include media-breakpoint-up(xxl){
+      #leader{
+         height:50%;
+         @include padding(20px);
+         z-index: 1;
+         width:50%;
+         @include bg-color(map-get($colors,white),nth($fallback-colors,1));
+         transform: translate(95%,-90%);
+      }
+    }
+  }
+  
+  &_second{
     
-    
-	  #allBtn{
-	    width:200px;
-	    height:30px;
-	  }
     #pictures{
       display:grid;
       grid-template-columns: 1fr;
-      grid-template-rows: repeat(4,fit-content);
       align-items: start;
-      height:100%;
-      position:relative;
-      .parent {
-        min-height: 300px;
-        position: relative; 
-        img{
-           max-width: 370px;
-           &:not(#first){
-              @for $s from 1 through 7 {
-                .#{$s} {margin-top: -$s * 10px;}
-              }
-           }
-          }
-      }
+      row-gap:15px;
       h3{
-        @include font-color(lighten(map-get($colors,White),17),nth($fallback-colors,1));
+       @include font-color(map-get($colors,White),nth($fallback-colors,1));
+       width: 165px;
+       @include media-breakpoint-up(xxl){
+          width: 200px;
        }
-      @media screen and(min-width:$container__form-xxl){
-        grid-template-columns: repeat(4,300px);
+       font: {
+          family: "Josefin Sans", sans-serif;
+          weight: $font_weight-light;
+       }
+      }
+      .card{
+        &:hover{
+          .grayedimg{
+            filter: grayscale(60%) opacity(0.42);
+          }
+          .grayedfont{
+            @include font-color(map-get($colors,black),nth($fallback-colors,2));
+          }
+        }
+      }
+      @include media-breakpoint-up(xxl){
+        grid-template-columns: repeat(4,1fr);
         grid-template-rows: 1fr 1fr;
+        gap:15px;
       }
     }
-    @media screen and(min-width:$container__form-xxl){
-	   
-       width: $container__form-xxl;
-	     @include padding(150px);
-	   
-    }
+    
+  }
+  @include media-breakpoint-up(xxl){
+     width: $container__form-xxl;
+     @include padding(150px);
+   
+  }
   
 }
 
-footer {
-  .attribution {
-    font-size: $font_size-8;
-    text-align: center;
+#main-footer{
+  width:$container__form-xs;
+  @include padding(50px 15px);
+  @include margin(5px auto);
+  @include bg-color(map-get($colors,black),nth($fallback-colors,2));
+  @include font-color(map-get($colors,White),nth($fallback-colors,1));
+  .social-media i{
+    @include font-color(map-get($colors,White),nth($fallback-colors,1));
   }
-  .attribution a {
-    color: hsl(228, 45%, 44%);
+  a{
+    @include font-color(map-get($colors,white),nth($fallback-colors,1));
+    text-decoration:none;
+    @include margin(0 15px 0 0);
+    &:hover:not(.social-icons){
+      cursor:pointer;
+      &::after{
+        content:'';
+        position: relative;
+        left:25%;
+        width: 30px;
+        display: block;
+        height: 3px;
+        background-color: map-get($colors,white);
+      }
+  
+    }
+    &.social-icons{
+      transform:scale(1.2,1.2);
+      &:hover{
+        cursor:pointer;
+        &::after{
+          content:'';
+          position: relative;
+          left:0;
+          width:10px;
+          display: block;
+          height: 3px;
+          background-color: map-get($colors,white);
+        }
+      }
+    }
+  }
+  @include media-breakpoint-up(xxl){
+    @include padding(150px);
+    width: $container__form-xxl;
   }
 }
+
+#bottom-footer {
+.attribution {
+  font-size: $font_size-8;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+}
+
