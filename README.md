@@ -87,6 +87,7 @@ Users should be able to:
    }
     ```
 - I learned about image overlay in Bootstrap, in order to add the h3 titles ontop of the images.
+- I also had to comment out a bootstrap link in the head because it caused the breakpoint to be at 1400 px (Bootstrap default for xxl )instead of my custom 1440px.
 
 ### Continued development
 

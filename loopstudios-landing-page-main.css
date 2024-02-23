@@ -12905,18 +12905,17 @@ textarea.form-control-lg {
 ::after {
   box-sizing: border-box; }
 
-.red {
-  border: 2px solid red; }
-
 html,
 body {
+  background-color: #5b5b5b;
+  background-color: dimgray;
   font-size: 93.8%;
   font-weight: 400;
   font-family: "Alata", sans-serif; }
 
 .hidden {
   display: none; }
-  @media (min-width: 1440px) {
+  @media screen and (min-width: 1440px) {
     .hidden {
       display: block; } }
 
@@ -12976,8 +12975,10 @@ body {
 
 .main {
   width: 375px;
-  margin: 100px auto;
-  padding: 15px;
+  background-color: White;
+  background-color: white;
+  margin: 0 auto;
+  padding: 25px 0;
   font-size: 1.2rem; }
   .main .colorHover {
     background-color: White;
